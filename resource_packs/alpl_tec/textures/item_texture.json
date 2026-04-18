@@ -1,0 +1,23 @@
+{
+  "resource_pack_name": "The Evil Chemistry RE",
+  "texture_data": {
+    "seringa": {
+      "textures": "textures/items/seringa"
+    },
+    "dna": {
+      "textures": "textures/items/dna"
+    },
+    "ovo_gerador":{
+      "textures": "textures/items/ovo_gerador"
+    },
+    "soro_estabilizador": {
+      "textures": "textures/items/soro_estabilizador"
+    },
+    "liquido_incompleto": {
+        "textures": "textures/items/liquido_incompleto"
+    },
+    "liquido_gerador": {
+        "textures": "textures/items/liquido_gerador"
+    }
+  }
+}

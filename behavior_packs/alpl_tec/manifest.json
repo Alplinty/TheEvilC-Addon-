@@ -1,0 +1,40 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "The EvilC",
+    "description": "Um addon voltado à evolução genética e desenvolvimento de espécies.",
+    "uuid": "8b6d1c4f-7c08-4f29-9f5e-5d8c7a0e1ea0",
+    "version": [1,0,1],
+    "min_engine_version": [1,21,90]
+  },
+  "modules": [
+    {
+      "description": "Behavior",
+      "type": "data",
+      "uuid": "b9f2c769-e8a4-4fc2-987d-1b2c2e5a4c10",
+      "version": [1,0,0]
+    },
+    {
+      "description": "Script resources",
+      "language": "javascript",
+      "type": "script",
+      "uuid": "1421c10f-679d-4382-9191-d9c2409f3e6b",
+      "version": [1,0,0],
+      "entry": "scripts/main.js"
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "10de7a98-b7f2-425c-9abc-2d8f0b74e5a3",
+      "version": [1,0,1]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.6.0"
+    },
+    {
+      "module_name": "@minecraft/server-ui",
+      "version": "2.0.0"
+    }
+  ]
+}

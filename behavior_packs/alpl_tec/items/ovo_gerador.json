@@ -1,0 +1,19 @@
+{
+  "format_version": "1.20.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "alp_tec:ovo_gerador"
+    },
+    "components": {
+      "minecraft:allow_dynamic_properties": {},
+      "minecraft:stacked_by_data": {
+        "value": true
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": "ovo_gerador",
+      "minecraft:display_name": {
+        "value": "Ovo Gerador Artificial"
+      }
+    }
+  }
+}

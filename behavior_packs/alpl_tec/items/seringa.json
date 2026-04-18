@@ -1,0 +1,16 @@
+{
+  "format_version": "1.20.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "alp_tec:seringa"
+    },
+    "components": {
+      "minecraft:allow_dynamic_properties": {},
+      "minecraft:max_stack_size": 16,
+      "minecraft:icon": "seringa",
+      "minecraft:display_name": {
+        "value": "Seringa Vazia"
+      }
+    }
+  }
+}

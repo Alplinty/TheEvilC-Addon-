@@ -1,0 +1,19 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "The EvilC",
+    "description": "Um addon voltado à evolução genética e desenvolvimento de espécies.",
+    "uuid": "10de7a98-b7f2-425c-9abc-2d8f0b74e5a3",
+    "version": [1,0,1],
+    "min_engine_version": [1,21,90]
+  },
+  "modules": [
+    {
+      "description": "Add-on Pack Resources",
+      "type": "resources",
+      "uuid": "f4a5d9e2-5d22-4f7b-8aa3-3b0c6b9a2f60",
+      "version": [1,0,0]
+    }
+  ],
+  "dependencies": []
+}
