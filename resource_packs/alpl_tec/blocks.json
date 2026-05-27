@@ -1,0 +1,9 @@
+{
+    "format_version": "1.20.0",
+    "alp_tec:centrifuga": {
+        "sound": "stone"
+    },
+    "alp_tec:chocadeira": {
+        "sound": "stone"
+    }
+}
