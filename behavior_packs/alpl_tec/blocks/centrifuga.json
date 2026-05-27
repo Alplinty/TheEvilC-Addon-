@@ -1,0 +1,54 @@
+{
+  "format_version": "1.21.80",
+  "minecraft:block": {
+    "description": {
+      "identifier": "alp_tec:centrifuga"
+    },
+    "components": {
+        "minecraft:destructible_by_mining": {
+            "seconds_to_destroy": 2.5
+        },
+        "minecraft:geometry": "minecraft:geometry.full_block",
+        "minecraft:selection_box": {
+            "origin": [-8, 0, -8],
+            "size": [16, 16, 16]
+        },
+        "minecraft:collision_box": {
+            "origin": [-8, 0, -8],
+            "size": [16, 16, 16]
+        },
+        "minecraft:material_instances": {
+            "north": {
+              "texture": "centrifuga_frente"
+            },
+            "south": {
+              "texture": "centrifuga_tras"
+            },
+            "east": {
+              "texture": "centrifuga_direita"
+            },
+            "west": {
+              "texture": "centrifuga_esquerda"
+            },
+            "up": {
+              "texture": "centrifuga_cima"
+            },
+            "down": {
+              "texture": "centrifuga_baixo"
+            }
+        },
+        "minecraft:item_visual": {
+          "geometry": "minecraft:geometry.full_block",
+          "material_instances": {
+            "*": {
+              "texture": "centrifuga_spr",
+              "render_method": "opaque"
+            }
+          }
+        },
+        "minecraft:custom_components": [
+          "alp_tec:centrifuga_interact"
+        ]
+    }
+  }
+}

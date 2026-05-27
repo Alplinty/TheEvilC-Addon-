@@ -1,0 +1,54 @@
+{
+  "format_version": "1.21.80",
+  "minecraft:block": {
+    "description": {
+      "identifier": "alp_tec:chocadeira"
+    },
+    "components": {
+        "minecraft:destructible_by_mining": {
+            "seconds_to_destroy": 2.5
+        },
+        "minecraft:geometry": "minecraft:geometry.full_block",
+        "minecraft:selection_box": {
+            "origin": [-8, 0, -8],
+            "size": [16, 16, 16]
+        },
+        "minecraft:collision_box": {
+            "origin": [-8, 0, -8],
+            "size": [16, 16, 16]
+        },
+        "minecraft:material_instances": {
+            "north": {
+                "texture": "chocadeira_frente"
+            },
+            "south": {
+                "texture": "chocadeira_tras"
+            },
+            "east": {
+                "texture": "chocadeira_direita"
+            },
+            "west": {
+                "texture": "chocadeira_esquerda"
+            },
+            "up": {
+                "texture": "chocadeira_cima"
+            },
+            "down": {
+                "texture": "chocadeira_baixo"
+            }
+        },
+        "minecraft:item_visual": {
+          "geometry": "minecraft:geometry.full_block",
+          "material_instances": {
+            "*": {
+              "texture": "chocadeira_spr",
+              "render_method": "opaque"
+            }
+          }
+        },
+        "minecraft:custom_components": [
+          "alp_tec:chocadeira_interact"
+        ]
+    }
+  }
+}

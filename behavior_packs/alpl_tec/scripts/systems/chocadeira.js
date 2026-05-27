@@ -1,56 +1,43 @@
-import { world, system, ItemStack } from "@minecraft/server";
-import { consumeItem } from "../utils/consumeItem.js";
+import {world, ItemStack} from "@minecraft/server";
+import {consumeItem} from "../utils/consumeItem.js";
+import {registerMachine, registerMachineInstance} from "../utils/machineBase.js";
+import {registrarMaquina} from "../utils/machineManager.js";
 
-world.afterEvents.itemUse.subscribe((event) => {
-    const player = event.source ?? world.getPlayers()[0];
-    const item = event.itemStack;
-
-    if (item.typeId === "alp_tec:liquido_gerador") {
-
-        const inv = player.getComponent("minecraft:inventory").container;
-
-        let temOvo = false;
-
-        // verifica ovo
-        for (let i = 0; i < inv.size; i++) {
-            const slot = inv.getItem(i);
-
-            if (slot && slot.typeId === "minecraft:egg") {
-                if (slot.amount > 1) {
-                    slot.amount -= 1;
-                    inv.setItem(i, slot);
-                } else {
-                    inv.setItem(i, undefined);
-                }
-                temOvo = true;
-                break;
-            }
-        }
-
-        if (!temOvo) {
-            player?.sendMessage("§cVocê precisa de um ovo!");
+registerMachine("chocadeira", {
+    onInteract: ({player, block, item, blockId, state}) => {
+        if (item.typeId !== "alp_tec:liquido_gerador") {
+            player.sendMessage("§c[Chocadeira] Use líquido gerador!");
             return;
         }
 
         const entityId = item.getDynamicProperty("alp_mob");
         if (!entityId) {
-            player?.sendMessage("§cDNA inválido!");
+            player.sendMessage("§c[Chocadeira] Esse item não contém um DNA válido!");
             return;
         }
 
-        // remove liquido
+        if (state.state === "processando") {
+            player.sendMessage("§c[Chocadeira] Já está em uso!");
+            return;
+        }
+
         consumeItem(player);
 
-        player?.sendMessage("§e[Chocadeira] Incubando...");
+        player.sendMessage("§e[Chocadeira] Incubando...");
+        state.setState("processando");
+        registrarMaquina(blockId, {
+            tempo: 10,
+            onFinish: () => {
+                const ovoGerador = new ItemStack("alp_tec:ovo_gerador", 1);
+                ovoGerador.setDynamicProperty("alp_mob", entityId);
 
-        // delay (10 segundos)
-        system.runTimeout(() => {
-            const ovoGerador = new ItemStack("alp_tec:ovo_gerador", 1);
-            ovoGerador.setDynamicProperty("alp_mob", entityId);
-
-            player.getComponent("minecraft:inventory").container.addItem(ovoGerador);
-
-            player?.sendMessage("§a[Chocadeira] Ovo pronto!");
-        }, 200);
+                block.dimension.playSound("random.orb", block.location);
+                block.dimension.spawnItem(ovoGerador, block.location);
+                state.setState("idle");
+            }
+        });
     }
 });
+
+// Machine instances are registered lazily by `MachineManager` when a player
+// interacts with a block that contains the machine custom component.
