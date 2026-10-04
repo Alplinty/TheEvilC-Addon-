@@ -1,34 +1,28 @@
-// ct:/main.js
 import {world, system} from "@minecraft/server";
-
-// Registrar propriedades dinâmicas para itens e blocos
-world.beforeEvents.worldInitialize.subscribe((event) => {
-  const registry = event.itemComponentRegistry;
-  const blockRegistry = event.blockComponentRegistry;
-
-  registry.registerDynamicProperties({
-    alp_mob: "string"
-  });
-  blockRegistry.registerDynamicProperties({
-    alp_machine: "string"
-  });
-});
- 
-// Importar sistemas
+import {MachineManager} from "./utils/machineManager.js";
 import "./systems/seringa.js";
 import "./systems/dna.js";
 import "./systems/ovo_spawn.js";
 import "./systems/centrifuga.js";
 import "./systems/chocadeira.js";
-import "./systems/machineManager.js";
 
-
-function mainTick() {
-  /*if (system.currentTick % 100 === 0) { // A cada 5 segundos (100 ticks)
-    for (const player of world.getPlayers()) {
-      player.sendMessage("All systems GO!");
+world.afterEvents.playerInteractWithBlock.subscribe((event) => {
+    const player = event.player;
+    const block = event.block;
+    if (!player || !block) return;
+    if (
+        block.typeId === "alp_tec:centrifuga" ||
+        block.typeId === "alp_tec:chocadeira"
+    ) {
+        if (!player.isSneaking) return; 
+        new MachineManager(block).handleInteraction(player);
+        player.sendMessage("[DEBUG] Interagindo com máquina");
     }
-  }*/
-  system.run(mainTick);
-}
-system.run(mainTick);
+});
+
+system.runInterval(() => {
+  const players = world.getPlayers();
+  for (const player of players) {
+    player.sendMessage("§aTESTE RODANDO");
+  }
+}, 200);

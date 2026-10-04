@@ -1,0 +1,51 @@
+{
+    "resource_pack_name": "alpl_tec",
+    "texture_name": "atlas.terrain",
+    "padding": 8,
+    "num_mip_levels": 4,
+    "texture_data": {
+        "centrifuga_frente": {
+            "textures": "textures/blocks/centrifuga_1"
+        },
+        "centrifuga_tras": {
+            "textures": "textures/blocks/centrifuga_2"
+        },
+        "centrifuga_direita": {
+            "textures": "textures/blocks/centrifuga_3"
+        },
+        "centrifuga_esquerda": {
+            "textures": "textures/blocks/centrifuga_4"
+        },
+        "centrifuga_cima": {
+            "textures": "textures/blocks/centrifuga_5"
+        },
+        "centrifuga_baixo": {
+            "textures": "textures/blocks/centrifuga_6"
+        },
+        "centrifuga_spr": {
+            "textures": "textures/blocks/centrifuga_spr"
+        },
+        "chocadeira_spr": {
+            "textures": "textures/blocks/chocadeira_spr"
+        },
+        "chocadeira_frente": {
+            "textures": "textures/blocks/chocadeira_1"
+        },
+        "chocadeira_tras": {
+            "textures": "textures/blocks/chocadeira_2"
+        },
+        "chocadeira_direita": {
+            "textures": "textures/blocks/chocadeira_3"
+        },
+        "chocadeira_esquerda": {
+            "textures": "textures/blocks/chocadeira_4"
+        },
+        "chocadeira_cima": {
+            "textures": "textures/blocks/chocadeira_5"
+        },
+        "chocadeira_baixo": {
+            "textures": "textures/blocks/chocadeira_6"
+        }
+
+    }
+}
